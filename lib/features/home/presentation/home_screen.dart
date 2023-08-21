@@ -6,7 +6,7 @@ import 'package:consumable_advisory/config/providers.dart';
 import 'package:consumable_advisory/features/advisory/presentation/screens/conversation_history_screen.dart';
 import 'package:consumable_advisory/features/on_boarding/on_boarding_screen.dart';
 import 'package:consumable_advisory/features/settings/settings_screen.dart';
-import 'package:consumable_advisory/features/text_detection/presentation/text_detection.dart';
+import 'package:consumable_advisory/features/text_detection/presentation/screens/text_detection.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';

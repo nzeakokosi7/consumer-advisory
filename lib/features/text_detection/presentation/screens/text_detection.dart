@@ -1,5 +1,5 @@
 import 'package:camera/camera.dart';
-import 'package:consumable_advisory/features/text_detection/presentation/detector_screen.dart';
+import 'package:consumable_advisory/features/text_detection/presentation/screens/detector_screen.dart';
 import 'package:consumable_advisory/features/text_detection/presentation/utils/text_detector_painter.dart';
 import 'package:flutter/material.dart';
 import 'package:google_mlkit_text_recognition/google_mlkit_text_recognition.dart';

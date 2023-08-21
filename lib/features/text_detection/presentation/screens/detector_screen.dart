@@ -1,6 +1,6 @@
 import 'package:camera/camera.dart';
-import 'package:consumable_advisory/features/text_detection/presentation/camera_screen.dart';
-import 'package:consumable_advisory/features/text_detection/presentation/gallery_screen.dart';
+import 'package:consumable_advisory/features/text_detection/presentation/screens/camera_screen.dart';
+import 'package:consumable_advisory/features/text_detection/presentation/screens/gallery_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:google_mlkit_commons/google_mlkit_commons.dart';
 

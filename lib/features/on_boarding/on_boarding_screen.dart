@@ -1,7 +1,7 @@
 import 'package:consumable_advisory/config/app_colors.dart';
 import 'package:consumable_advisory/config/common/components/elevated_button.dart';
 import 'package:consumable_advisory/config/common/constants/edge_insets.dart';
-import 'package:consumable_advisory/features/home/presentation/screens/home_screen.dart';
+import 'package:consumable_advisory/features/home/presentation/home_screen.dart';
 import 'package:consumable_advisory/features/on_boarding/on_boarding_controller.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';

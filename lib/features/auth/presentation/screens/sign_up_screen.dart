@@ -7,7 +7,7 @@ import 'package:consumable_advisory/features/advisory/presentation/components/pa
 import 'package:consumable_advisory/features/advisory/presentation/components/password_field/password_field.dart';
 import 'package:consumable_advisory/features/auth/presentation/auth_controller.dart';
 import 'package:consumable_advisory/features/auth/presentation/screens/login_screen.dart';
-import 'package:consumable_advisory/features/home/presentation/screens/home_screen.dart';
+import 'package:consumable_advisory/features/home/presentation/home_screen.dart';
 import 'package:consumable_advisory/features/on_boarding/on_boarding_screen.dart';
 import 'package:email_validator/email_validator.dart';
 import 'package:flutter/material.dart';
