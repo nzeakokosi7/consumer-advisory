@@ -212,10 +212,8 @@ class _CameraViewState extends State<CameraView> {
             heroTag: Object(),
             onPressed: _captureImage,
             backgroundColor: Colors.black54,
-            child: Icon(
-              Platform.isIOS
-                  ? Icons.flip_camera_ios_outlined
-                  : Icons.flip_camera_android_outlined,
+            child: const Icon(
+              Icons.camera,
               size: 25,
             ),
           ),
