@@ -8,5 +8,6 @@ class UserPromptState with _$UserPromptState {
 
   const factory UserPromptState.sendingUserPrompt() = _SendingUserPrompt;
 
-  const factory UserPromptState.errorSendingUserPrompt({required String message}) = _ErrorSendingUserPrompt;
+  const factory UserPromptState.errorSendingUserPrompt(
+      {required String message,}) = _ErrorSendingUserPrompt;
 }

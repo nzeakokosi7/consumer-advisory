@@ -2,8 +2,8 @@ import 'package:consumable_advisory/config/app_colors.dart';
 import 'package:consumable_advisory/config/common/components/loading_dots.dart';
 import 'package:consumable_advisory/config/common/components/navigation_button.dart';
 import 'package:consumable_advisory/config/common/constants/edge_insets.dart';
-import 'package:consumable_advisory/features/advisory/presentation/controllers/advisory_controller.dart';
 import 'package:consumable_advisory/features/advisory/presentation/components/conversation_component.dart';
+import 'package:consumable_advisory/features/advisory/presentation/controllers/advisory_controller.dart';
 import 'package:consumable_advisory/features/advisory/presentation/screens/advisory_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -57,14 +57,13 @@ class ConversationHistoryScreen extends ConsumerWidget {
                                 conversations: e.value,
                                 onTap: (conversationTitle) => context.push(
                                     AdvisoryScreen.route,
-                                    extra: conversationTitle),
+                                    extra: conversationTitle,),
                               ),
                             )
                             .toList(),
                       )
                     : const Center(
-                        child:
-                            Text("You are yet to intiate any consultations"),
+                        child: Text("You are yet to intiate any consultations"),
                       );
               },
               loading: () => _loadingChild,

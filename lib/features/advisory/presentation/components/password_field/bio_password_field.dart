@@ -118,9 +118,8 @@ class BioPasswordFieldComponent extends ConsumerWidget {
                     hintText: hint,
                     suffixIcon: _suffix(context, ref),
                   ),
-                  obscureText: !ref
-                      .watch(passwordFieldController)
-                      .isPasswordVisible,
+                  obscureText:
+                      !ref.watch(passwordFieldController).isPasswordVisible,
                 ),
               ),
               // _suffix(context),

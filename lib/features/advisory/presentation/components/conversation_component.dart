@@ -38,7 +38,8 @@ class ConversationComponent extends StatelessWidget {
           ),
         ),
         Padding(
-          padding: AppEdgeInsets.enormous.asEdgeInsetsSymmetric(horizontal: true, vertical: true),
+          padding: AppEdgeInsets.enormous
+              .asEdgeInsetsSymmetric(horizontal: true, vertical: true),
           child: const Divider(color: AppColors.titleColor),
         ),
       ],

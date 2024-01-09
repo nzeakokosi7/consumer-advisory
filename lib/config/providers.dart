@@ -8,14 +8,16 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 final firebaseAuthProvider =
-Provider<FirebaseAuth>((ref) => FirebaseAuth.instance);
+    Provider<FirebaseAuth>((ref) => FirebaseAuth.instance);
 
 final firebaseFireStoreProvider =
-Provider<FirebaseFirestore>((ref) => FirebaseFirestore.instance);
+    Provider<FirebaseFirestore>((ref) => FirebaseFirestore.instance);
 
-final firebaseStorageProvider = Provider<FirebaseStorage>((ref) => FirebaseStorage.instance);
+final firebaseStorageProvider =
+    Provider<FirebaseStorage>((ref) => FirebaseStorage.instance);
 
-final cameraProvider = FutureProvider.autoDispose<CameraController?>((ref) async {
+final cameraProvider =
+    FutureProvider.autoDispose<CameraController?>((ref) async {
   try {
     final cameras = await availableCameras();
     final firstCamera = cameras.first;
@@ -42,11 +44,9 @@ final authStateListenable = ValueNotifier<bool>(false);
 
 /// Triggered from common() to complete futures
 Future<void> initializeProviders(ProviderContainer container) async {
-
   /// Firebase
   container.read(firebaseAuthProvider);
 
   /// Auth
   container.read(authControllerProvider);
-
 }

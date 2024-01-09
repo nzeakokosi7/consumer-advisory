@@ -3,8 +3,8 @@ import 'package:consumable_advisory/config/common/components/loading_dots.dart';
 import 'package:consumable_advisory/config/common/components/navigation_button.dart';
 import 'package:consumable_advisory/config/common/components/text_field.dart';
 import 'package:consumable_advisory/config/common/constants/edge_insets.dart';
-import 'package:consumable_advisory/features/advisory/presentation/controllers/advisory_controller.dart';
 import 'package:consumable_advisory/features/advisory/presentation/components/message_component.dart';
+import 'package:consumable_advisory/features/advisory/presentation/controllers/advisory_controller.dart';
 import 'package:consumable_advisory/features/advisory/presentation/controllers/user_prompt_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
@@ -52,10 +52,11 @@ class AdvisoryScreen extends ConsumerWidget {
         ref.watch(userPromptControllerProvider.notifier).promptController;
     ref.watch(advisoryControllerProvider);
 
-    final controller = ref.watch(userPromptControllerProvider.notifier).controller;
+    final controller =
+        ref.watch(userPromptControllerProvider.notifier).controller;
 
     SchedulerBinding.instance.addPostFrameCallback((_) {
-      if(controller.hasClients){
+      if (controller.hasClients) {
         controller.jumpTo(controller.position.maxScrollExtent);
       }
     });

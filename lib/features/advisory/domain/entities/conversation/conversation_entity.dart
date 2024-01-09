@@ -8,9 +8,8 @@ class ConversationEntity with _$ConversationEntity {
   const factory ConversationEntity({
     required String title,
     required num timestamp,
-
   }) = _ConversationEntity;
 
-  factory ConversationEntity.fromJson(Map<String, Object?> json)
-  => _$ConversationEntityFromJson(json);
+  factory ConversationEntity.fromJson(Map<String, Object?> json) =>
+      _$ConversationEntityFromJson(json);
 }

@@ -15,6 +15,8 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:intl/intl.dart';
 
+
+// TODO: Need to understand how the bottomsheet stream works to before migration
 class AdvisoryController extends StateNotifier<AdvisoryState> {
   final AdvisoryRepository advisoryRepository;
   final StreamController<Stage> _productTitleBottomSheetStream =
@@ -89,7 +91,7 @@ class AdvisoryController extends StateNotifier<AdvisoryState> {
   }
 
   Future<void> _uploadFileForBioResponse(
-      String imagePath, HealthBioEntity healthBioEntity) async {
+      String imagePath, HealthBioEntity healthBioEntity,) async {
     state = AdvisoryState.uploading(title: productTitleController.text.trim());
     _bioBottomSheetStream.add(Stage.initial);
     final response = await advisoryRepository.uploadFile(
@@ -156,7 +158,6 @@ class AdvisoryController extends StateNotifier<AdvisoryState> {
       },
     );
   }
-
 
   String getUniqueInput(String userInput, {int? salt}) {
     final String saltedInput = salt != null ? "$userInput$salt" : userInput;
@@ -240,7 +241,7 @@ final conversationHistoryStream =
     for (final entity in entities) {
       final formattedDate = DateFormat.yMMMEd().format(
           DateTime.fromMicrosecondsSinceEpoch(
-              int.parse(entity.timestamp.toString())));
+              int.parse(entity.timestamp.toString()),),);
       if (!conversationMap.containsKey(formattedDate)) {
         conversationMap[formattedDate] = [entity];
       } else {

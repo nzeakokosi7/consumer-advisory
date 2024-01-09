@@ -9,11 +9,11 @@ import 'package:google_mlkit_text_recognition/google_mlkit_text_recognition.dart
 
 class TextRecognizerPainter extends CustomPainter {
   TextRecognizerPainter(
-      this.recognizedText,
-      this.imageSize,
-      this.rotation,
-      this.cameraLensDirection,
-      );
+    this.recognizedText,
+    this.imageSize,
+    this.rotation,
+    this.cameraLensDirection,
+  );
 
   final RecognizedText recognizedText;
   final Size imageSize;
@@ -27,17 +27,17 @@ class TextRecognizerPainter extends CustomPainter {
       ..strokeWidth = 3.0
       ..color = Colors.lightGreenAccent;
 
-    final Paint background = Paint()..color = Color(0x99000000);
+    final Paint background = Paint()..color = const Color(0x99000000);
 
     for (final textBlock in recognizedText.blocks) {
       final ParagraphBuilder builder = ParagraphBuilder(
         ParagraphStyle(
             textAlign: TextAlign.left,
             fontSize: 16,
-            textDirection: TextDirection.ltr),
+            textDirection: TextDirection.ltr,),
       );
       builder.pushStyle(
-          ui.TextStyle(color: Colors.lightGreenAccent, background: background));
+          ui.TextStyle(color: Colors.lightGreenAccent, background: background),);
       // builder.addText(textBlock.text);
       builder.pop();
 
@@ -102,7 +102,6 @@ class TextRecognizerPainter extends CustomPainter {
                 case InputImageRotation.rotation180deg:
                   x = size.width - x;
                   y = size.height - y;
-                  break;
                 case InputImageRotation.rotation270deg:
                   x = translateX(
                     point.y.toDouble(),
@@ -119,9 +118,7 @@ class TextRecognizerPainter extends CustomPainter {
                         rotation,
                         cameraLensDirection,
                       );
-                  break;
               }
-              break;
             case CameraLensDirection.back:
               switch (rotation) {
                 case InputImageRotation.rotation0deg:
@@ -130,7 +127,6 @@ class TextRecognizerPainter extends CustomPainter {
                 case InputImageRotation.rotation180deg:
                   x = size.width - x;
                   y = size.height - y;
-                  break;
                 case InputImageRotation.rotation90deg:
                   x = size.width -
                       translateX(
@@ -147,9 +143,7 @@ class TextRecognizerPainter extends CustomPainter {
                     rotation,
                     cameraLensDirection,
                   );
-                  break;
               }
-              break;
             case CameraLensDirection.external:
               break;
           }
@@ -166,13 +160,13 @@ class TextRecognizerPainter extends CustomPainter {
         builder.build()
           ..layout(ParagraphConstraints(
             width: (right - left).abs(),
-          )),
+          ),),
         Offset(
             Platform.isAndroid &&
-                cameraLensDirection == CameraLensDirection.front
+                    cameraLensDirection == CameraLensDirection.front
                 ? right
                 : left,
-            top),
+            top,),
       );
     }
   }

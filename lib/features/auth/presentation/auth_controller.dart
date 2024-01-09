@@ -7,6 +7,8 @@ import 'package:consumable_advisory/features/auth/domain/repositories/auth_repos
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
+
+// TODO: Look into migrating to AsynNotifier
 class AuthController extends StateNotifier<AuthenticationState> {
   final AuthRepository _authRepository;
   final TextEditingController emailController;
@@ -56,12 +58,10 @@ class AuthController extends StateNotifier<AuthenticationState> {
     state = const AuthenticationState.loading();
     final response = await _authRepository.signInWithGoogle();
     state = response.fold(
-          (error) => AuthenticationState.unauthenticated(message: error),
-          (response) => const AuthenticationState.authenticated(),
+      (error) => AuthenticationState.unauthenticated(message: error),
+      (response) => const AuthenticationState.authenticated(),
     );
   }
-
-
 }
 
 final authControllerProvider =

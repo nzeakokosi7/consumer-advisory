@@ -50,6 +50,7 @@ class AdvisoryDataSource {
         final doc = event.docs.first.data();
         return doc["text"] as String;
       }
+      return null;
     });
   }
 
@@ -59,7 +60,7 @@ class AdvisoryDataSource {
   }) async {
     AppLogger.log(
         "Sending prompt $prompt to users/$uuid/conversations/$collectionPath/messages",
-        longMessage: true);
+        longMessage: true,);
     final timeStamp = DateTime.now().microsecondsSinceEpoch;
 
     final collectionRef = _firebaseFireStore
@@ -106,7 +107,8 @@ class AdvisoryDataSource {
   }) async {
     return _firebaseFireStore
         .collection("users/$uuid/conversations")
-        .doc(conversationId).delete();
+        .doc(conversationId)
+        .delete();
   }
 
   Stream<List<ConversationEntity>> fetchConversations() {

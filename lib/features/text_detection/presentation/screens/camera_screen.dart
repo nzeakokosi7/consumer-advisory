@@ -52,7 +52,7 @@ class _CameraViewState extends State<CameraView> {
     _initialize();
   }
 
-  void _initialize() async {
+  Future<void> _initialize() async {
     if (_cameras.isEmpty) {
       _cameras = await availableCameras();
     }
@@ -257,7 +257,7 @@ class _CameraViewState extends State<CameraView> {
                     child: Center(
                       child: Text(
                         '${_currentZoomLevel.toStringAsFixed(1)}x',
-                        style: TextStyle(color: Colors.white),
+                        style: const TextStyle(color: Colors.white),
                       ),
                     ),
                   ),
@@ -313,7 +313,7 @@ class _CameraViewState extends State<CameraView> {
                 ),
               ),
             )
-          ]),
+          ],),
         ),
       );
 
@@ -460,6 +460,6 @@ class _CameraViewState extends State<CameraView> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        body: _hasCaptured ? _capturedBody(context) : _liveFeedBody());
+        body: _hasCaptured ? _capturedBody(context) : _liveFeedBody(),);
   }
 }

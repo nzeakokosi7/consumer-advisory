@@ -1,7 +1,6 @@
 import 'dart:async';
 
 import 'package:consumable_advisory/config/app_colors.dart';
-import 'package:consumable_advisory/config/app_logger.dart';
 import 'package:consumable_advisory/config/common/components/elevated_button.dart';
 import 'package:consumable_advisory/config/common/components/text_field.dart';
 import 'package:consumable_advisory/config/common/constants/edge_insets.dart';
@@ -85,8 +84,8 @@ class __HealthBioBottomSheet extends State<_HealthBioBottomSheet> {
     });
     _canProceed = _areAllTextFilled() && _areAllOptionsChecked();
     _isAMother = "false";
-    _isLactating  = "false";
-    _bloodGroupRhesus  = "false";
+    _isLactating = "false";
+    _bloodGroupRhesus = "false";
 
     _ageController.addListener(textControllerListener);
     _heightController.addListener(textControllerListener);
@@ -830,10 +829,10 @@ class __HealthBioBottomSheet extends State<_HealthBioBottomSheet> {
                                         .textTheme
                                         .labelSmall
                                         ?.copyWith(
-                                      fontSize: 14,
-                                      fontWeight: FontWeight.w500,
-                                      color: AppColors.subTitleColor,
-                                    ),
+                                          fontSize: 14,
+                                          fontWeight: FontWeight.w500,
+                                          color: AppColors.subTitleColor,
+                                        ),
                                   ),
                                   value: "$_bloodGroup+",
                                   groupValue: _bloodGroupRhesus,
@@ -850,10 +849,10 @@ class __HealthBioBottomSheet extends State<_HealthBioBottomSheet> {
                                         .textTheme
                                         .labelSmall
                                         ?.copyWith(
-                                      fontSize: 14,
-                                      fontWeight: FontWeight.w500,
-                                      color: AppColors.subTitleColor,
-                                    ),
+                                          fontSize: 14,
+                                          fontWeight: FontWeight.w500,
+                                          color: AppColors.subTitleColor,
+                                        ),
                                   ),
                                   value: "$_bloodGroup-",
                                   groupValue: _bloodGroupRhesus,

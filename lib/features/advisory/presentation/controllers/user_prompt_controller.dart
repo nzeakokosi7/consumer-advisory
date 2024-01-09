@@ -4,12 +4,14 @@ import 'package:consumable_advisory/features/advisory/domain/repositories/adviso
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
+
+// TODO: migrate to AsyncNotifier
 class UserPromptController extends StateNotifier<UserPromptState> {
   final AdvisoryRepository advisoryRepository;
-  UserPromptController(this.advisoryRepository) : super(const UserPromptState.sentPrompt());
+  UserPromptController(this.advisoryRepository)
+      : super(const UserPromptState.sentPrompt());
   final controller = ScrollController();
   late final TextEditingController promptController = TextEditingController();
-
 
   Future<void> sendPrompt({required String conversationTitle}) async {
     final collection = conversationTitle;
@@ -22,12 +24,12 @@ class UserPromptController extends StateNotifier<UserPromptState> {
         prompt: userPrompt,
       );
       response.fold(
-            (error) {
+        (error) {
           state = UserPromptState.errorSendingUserPrompt(message: error);
         },
-            (isSuccessful) {
+        (isSuccessful) {
           state = const UserPromptState.sentPrompt();
-          if(controller.hasClients){
+          if (controller.hasClients) {
             controller.jumpTo(controller.position.maxScrollExtent);
           }
           promptController.clear();
@@ -35,11 +37,11 @@ class UserPromptController extends StateNotifier<UserPromptState> {
       );
     }
   }
-
 }
 
 final userPromptControllerProvider =
-StateNotifierProvider.autoDispose<UserPromptController, UserPromptState>((ref) {
+    StateNotifierProvider.autoDispose<UserPromptController, UserPromptState>(
+        (ref) {
   final advisoryRepository = ref.watch(advisoryRepositoryProvider);
   return UserPromptController(advisoryRepository);
 });

@@ -16,8 +16,9 @@ class OnboardingScreen extends ConsumerWidget {
 
   void initialize(WidgetRef ref) {
     Future.delayed(Duration.zero, () {
-      ref.read(onboardingControllerProvider.notifier).initialize(fullName: fullName);
-
+      ref
+          .read(onboardingControllerProvider.notifier)
+          .initialize(fullName: fullName);
     });
   }
 
@@ -27,7 +28,11 @@ class OnboardingScreen extends ConsumerWidget {
 
     return Scaffold(
       body: Padding(
-        padding: const EdgeInsets.only(left: AppEdgeInsets.huge, right: AppEdgeInsets.huge, top: AppEdgeInsets.elephant, bottom: AppEdgeInsets.enormous),
+        padding: const EdgeInsets.only(
+            left: AppEdgeInsets.huge,
+            right: AppEdgeInsets.huge,
+            top: AppEdgeInsets.elephant,
+            bottom: AppEdgeInsets.enormous,),
         child: Column(
           children: [
             Text(
@@ -56,70 +61,73 @@ class OnboardingScreen extends ConsumerWidget {
                   ListTile(
                     leading: const Icon(Icons.lock),
                     title: Padding(
-                      padding: AppEdgeInsets.normal.asEdgeInsetsOnly(bottom: true),
+                      padding:
+                          AppEdgeInsets.normal.asEdgeInsetsOnly(bottom: true),
                       child: Text(
                         "Don't share sensitive information",
                         style: Theme.of(context).textTheme.labelSmall?.copyWith(
-                          fontSize: 18,
-                          fontWeight: FontWeight.w500,
-                          color: AppColors.titleColor,
-                        ),
+                              fontSize: 18,
+                              fontWeight: FontWeight.w500,
+                              color: AppColors.titleColor,
+                            ),
                       ),
                     ),
                     subtitle: Text(
                       "The services of this app is based off third party AI services. Who's AI trainers review its chats for system improvements.",
                       style: Theme.of(context).textTheme.labelSmall?.copyWith(
-                        fontSize: 16,
-                        fontWeight: FontWeight.w400,
-                        color: AppColors.titleColor,
-                      ),
+                            fontSize: 16,
+                            fontWeight: FontWeight.w400,
+                            color: AppColors.titleColor,
+                          ),
                     ),
                   ),
                   const SizedBox(height: AppEdgeInsets.normal),
                   ListTile(
                     leading: const Icon(CupertinoIcons.wand_rays_inverse),
                     title: Padding(
-                      padding: AppEdgeInsets.normal.asEdgeInsetsOnly(bottom: true),
+                      padding:
+                          AppEdgeInsets.normal.asEdgeInsetsOnly(bottom: true),
                       child: Text(
                         "Easy to Use",
                         style: Theme.of(context).textTheme.labelSmall?.copyWith(
-                          fontSize: 18,
-                          fontWeight: FontWeight.w500,
-                          color: AppColors.titleColor,
-                        ),
+                              fontSize: 18,
+                              fontWeight: FontWeight.w500,
+                              color: AppColors.titleColor,
+                            ),
                       ),
                     ),
                     subtitle: Text(
                       "Simply snap or upload an image and allow us extract relevant texts for the AI. \n\n"
-                          "The camera has on screen guide to ensure you keep relevant texts in view.",
+                      "The camera has on screen guide to ensure you keep relevant texts in view.",
                       style: Theme.of(context).textTheme.labelSmall?.copyWith(
-                        fontSize: 16,
-                        fontWeight: FontWeight.w400,
-                        color: AppColors.titleColor,
-                      ),
+                            fontSize: 16,
+                            fontWeight: FontWeight.w400,
+                            color: AppColors.titleColor,
+                          ),
                     ),
                   ),
                   const SizedBox(height: AppEdgeInsets.normal),
                   ListTile(
                     leading: const Icon(CupertinoIcons.settings),
                     title: Padding(
-                      padding: AppEdgeInsets.normal.asEdgeInsetsOnly(bottom: true),
+                      padding:
+                          AppEdgeInsets.normal.asEdgeInsetsOnly(bottom: true),
                       child: Text(
                         "Control your chat history",
                         style: Theme.of(context).textTheme.labelSmall?.copyWith(
-                          fontSize: 18,
-                          fontWeight: FontWeight.w500,
-                          color: AppColors.titleColor,
-                        ),
+                              fontSize: 18,
+                              fontWeight: FontWeight.w500,
+                              color: AppColors.titleColor,
+                            ),
                       ),
                     ),
                     subtitle: Text(
                       "You can easily clear your chat history from our systems.",
                       style: Theme.of(context).textTheme.labelSmall?.copyWith(
-                        fontSize: 16,
-                        fontWeight: FontWeight.w400,
-                        color: AppColors.titleColor,
-                      ),
+                            fontSize: 16,
+                            fontWeight: FontWeight.w400,
+                            color: AppColors.titleColor,
+                          ),
                     ),
                   ),
                 ],
@@ -134,7 +142,7 @@ class OnboardingScreen extends ConsumerWidget {
                   AppButton(
                     isDisabled: ref.watch(onboardingControllerProvider),
                     loading: ref.watch(onboardingControllerProvider),
-                    onPressed: ()=> context.go(HomeScreen.route),
+                    onPressed: () => context.go(HomeScreen.route),
                     shape: const StadiumBorder(
                       side: BorderSide(),
                     ),

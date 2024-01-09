@@ -23,10 +23,10 @@ class _SinglePasswordCheck extends StatelessWidget {
         Text(
           text,
           style: Theme.of(context).textTheme.labelSmall?.copyWith(
-            fontSize: 11,
-            fontWeight: FontWeight.w500,
-            color: isEnable ? AppColors.titleColor : Colors.grey,
-          ),
+                fontSize: 11,
+                fontWeight: FontWeight.w500,
+                color: isEnable ? AppColors.titleColor : Colors.grey,
+              ),
         ),
       ],
     );

@@ -67,10 +67,10 @@ class AppTextField extends StatelessWidget {
     this.borderColor,
     this.characterLength,
   });
-      // : assert(
-      //     prefixWidget == null || mmPrefixIcon == null,
-      //     "Can't have both [prefixIcon] and [dariaPrefixIcon]",
-      //   );
+  // : assert(
+  //     prefixWidget == null || mmPrefixIcon == null,
+  //     "Can't have both [prefixIcon] and [dariaPrefixIcon]",
+  //   );
 
   Widget? get _prefixIcon {
     final prefixIcon = prefixWidget;
@@ -79,12 +79,12 @@ class AppTextField extends StatelessWidget {
     final Widget icon;
     if (prefixIcon != null) {
       icon = prefixIcon;
-    // } else if (mmPrefixIcon != null) {
-    //   icon = MMIcon(
-    //     mmPrefixIcon,
-    //     size: MMIconRadius.small,
-    //     color: mmPrefixIconColor,
-    //   );
+      // } else if (mmPrefixIcon != null) {
+      //   icon = MMIcon(
+      //     mmPrefixIcon,
+      //     size: MMIconRadius.small,
+      //     color: mmPrefixIconColor,
+      //   );
     } else {
       return null;
     }
@@ -132,7 +132,7 @@ class AppTextField extends StatelessWidget {
   }
 
   TextStyle get _hintStyle {
-    if(hintStyle !=null) return hintStyle!;
+    if (hintStyle != null) return hintStyle!;
     return labelStyle;
   }
 
@@ -142,11 +142,9 @@ class AppTextField extends StatelessWidget {
       case TextFieldType.normal:
       case TextFieldType.lighter:
         textFieldFloatingLabelColor = AppColors.textFieldFloatingLabelColor;
-        break;
       case TextFieldType.special:
         textFieldFloatingLabelColor =
             AppColors.textFieldSpecialFloatingLabelColor;
-        break;
     }
     return TextStyle(
       height: 1.2,
@@ -162,10 +160,8 @@ class AppTextField extends StatelessWidget {
       case TextFieldType.normal:
       case TextFieldType.lighter:
         textFieldTextColor = AppColors.textFieldTextColor;
-        break;
       case TextFieldType.special:
         textFieldTextColor = AppColors.textFieldSpecialTextColor;
-        break;
     }
     return TextStyle(
       height: 1.2,

@@ -24,5 +24,4 @@ abstract class AuthRepository {
   void authStateChange(
     void Function(UserEntity? userEntity) authCallBack,
   );
-
 }

@@ -1,4 +1,3 @@
-import 'package:consumable_advisory/config/app_colors.dart';
 import 'package:consumable_advisory/features/advisory/presentation/components/password_field/bio_password_field.dart';
 import 'package:flutter/material.dart';
 

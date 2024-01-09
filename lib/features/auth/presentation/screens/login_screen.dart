@@ -8,7 +8,6 @@ import 'package:consumable_advisory/features/advisory/presentation/components/pa
 import 'package:consumable_advisory/features/auth/presentation/auth_controller.dart';
 import 'package:consumable_advisory/features/auth/presentation/screens/sign_up_screen.dart';
 import 'package:consumable_advisory/features/home/presentation/home_screen.dart';
-import 'package:consumable_advisory/features/on_boarding/on_boarding_screen.dart';
 import 'package:email_validator/email_validator.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -25,10 +24,10 @@ class LoginScreen extends ConsumerWidget {
         "Login",
         textAlign: TextAlign.left,
         style: Theme.of(context).textTheme.labelSmall?.copyWith(
-          fontSize: 20,
-          fontWeight: FontWeight.w700,
-          color: AppColors.titleColor,
-        ),
+              fontSize: 20,
+              fontWeight: FontWeight.w700,
+              color: AppColors.titleColor,
+            ),
       ),
       leading: NavigationButton(
         onTap: context.pop,
@@ -38,8 +37,10 @@ class LoginScreen extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final passwordController = ref.watch(authControllerProvider.notifier).passwordController;
-    final emailController = ref.watch(authControllerProvider.notifier).emailController;
+    final passwordController =
+        ref.watch(authControllerProvider.notifier).passwordController;
+    final emailController =
+        ref.watch(authControllerProvider.notifier).emailController;
 
     ref.listen(authControllerProvider, (previous, next) {
       next.maybeWhen(
@@ -56,11 +57,11 @@ class LoginScreen extends ConsumerWidget {
         },
         unauthenticated: (message) =>
             ScaffoldMessenger.of(context).showSnackBar(
-              SnackBar(
-                content: Text(message!),
-                behavior: SnackBarBehavior.floating,
-              ),
-            ),
+          SnackBar(
+            content: Text(message!),
+            behavior: SnackBarBehavior.floating,
+          ),
+        ),
       );
     });
 
@@ -80,7 +81,7 @@ class LoginScreen extends ConsumerWidget {
                     hintStyle: TextStyle(color: Colors.grey.shade700),
                     controller: emailController,
                     keyboardType: TextInputType.emailAddress,
-                    onChanged: (value)=> ref.refresh(authControllerProvider),
+                    onChanged: (value) => ref.refresh(authControllerProvider),
                   ),
                   const SizedBox(height: 30),
                   PasswordFieldComponent(
@@ -104,16 +105,19 @@ class LoginScreen extends ConsumerWidget {
                     ),
                     loaderColor: AppColors.appBlack,
                     backgroundColor: AppColors.appBackground,
-                    isDisabled: !(ref.watch(passwordFieldController).isPasswordValid && EmailValidator.validate(ref.watch(emailTextController).text.trim())),
+                    isDisabled:
+                        !(ref.watch(passwordFieldController).isPasswordValid &&
+                            EmailValidator.validate(
+                                ref.watch(emailTextController).text.trim(),)),
                     title: "Sign In",
                     titleStyle: const TextStyle(
                       color: AppColors.appBlack,
                       fontSize: 18,
                     ),
                     loading: ref.watch(authControllerProvider).maybeWhen(
-                      orElse: () => false,
-                      loading: () => true,
-                    ),
+                          orElse: () => false,
+                          loading: () => true,
+                        ),
                     onPressed: () =>
                         ref.read(authControllerProvider.notifier).login(),
                   ),

@@ -73,7 +73,8 @@ class SettingsScreen extends ConsumerWidget {
                     width: 50.0,
                     height: 50.0,
                     child: Avatar(
-                      name: currentUser.displayName ?? currentUser.email!.split("@")[0].toUpperCase(),
+                      name: currentUser.displayName ??
+                          currentUser.email!.split("@")[0].toUpperCase(),
                       textStyle: const TextStyle(
                         fontSize: 20.0,
                         fontWeight: FontWeight.bold,
@@ -187,14 +188,14 @@ class SettingsScreen extends ConsumerWidget {
                 "Sign Out",
                 textAlign: TextAlign.left,
                 style: Theme.of(context).textTheme.labelSmall?.copyWith(
-                  fontSize: 15,
-                  fontWeight: FontWeight.w700,
-                  color: Colors.red,
-                ),
+                      fontSize: 15,
+                      fontWeight: FontWeight.w700,
+                      color: Colors.red,
+                    ),
               ),
               onTap: () async {
                 await ref.read(firebaseAuthProvider).signOut();
-                if(context.mounted) {
+                if (context.mounted) {
                   ScaffoldMessenger.of(context).showSnackBar(
                     const SnackBar(
                       content: Text('Signed out'),

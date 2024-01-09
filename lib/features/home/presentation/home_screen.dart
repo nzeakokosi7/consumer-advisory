@@ -4,7 +4,6 @@ import 'package:consumable_advisory/config/app_logger.dart';
 import 'package:consumable_advisory/config/common/constants/edge_insets.dart';
 import 'package:consumable_advisory/config/providers.dart';
 import 'package:consumable_advisory/features/advisory/presentation/screens/conversation_history_screen.dart';
-import 'package:consumable_advisory/features/on_boarding/on_boarding_screen.dart';
 import 'package:consumable_advisory/features/settings/settings_screen.dart';
 import 'package:consumable_advisory/features/text_detection/presentation/screens/text_detection.dart';
 import 'package:flutter/material.dart';
@@ -46,7 +45,8 @@ class NavigationDrawer extends ConsumerWidget {
       elevation: 1,
       child: Container(
         margin: AppEdgeInsets.great.asEdgeInsetsOnly(top: true),
-        padding: AppEdgeInsets.huge.asEdgeInsetsSymmetric(horizontal: true, vertical: true),
+        padding: AppEdgeInsets.huge
+            .asEdgeInsetsSymmetric(horizontal: true, vertical: true),
         child: Column(
           children: [
             Row(
@@ -67,7 +67,8 @@ class NavigationDrawer extends ConsumerWidget {
                     width: 50.0,
                     height: 50.0,
                     child: Avatar(
-                      name: currentUser.displayName ?? currentUser.email!.split("@")[0].toUpperCase(),
+                      name: currentUser.displayName ??
+                          currentUser.email!.split("@")[0].toUpperCase(),
                       textStyle: const TextStyle(
                         fontSize: 20.0,
                         fontWeight: FontWeight.bold,
@@ -80,9 +81,9 @@ class NavigationDrawer extends ConsumerWidget {
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    if(currentUser.displayName !=null)
+                    if (currentUser.displayName != null)
                       Text(
-                          currentUser.displayName!,
+                        currentUser.displayName!,
                       ),
                     Text(
                       currentUser.email!,
@@ -100,22 +101,22 @@ class NavigationDrawer extends ConsumerWidget {
               title: const Text(
                 "New consultation",
               ),
-              onTap: ()=> context.push(TextRecognizerView.route),
+              onTap: () => context.push(TextRecognizerView.route),
             ),
             ListTile(
               leading: const Icon(Icons.history),
               title: const Text(
-                  "History",
+                "History",
               ),
-              onTap: ()=> context.push(ConversationHistoryScreen.route),
+              onTap: () => context.push(ConversationHistoryScreen.route),
             ),
             const Divider(color: AppColors.titleColor),
             ListTile(
-              leading: Icon(Icons.settings),
+              leading: const Icon(Icons.settings),
               title: const Text(
-                  "Setting",
+                "Setting",
               ),
-              onTap: ()=> context.push(SettingsScreen.route),
+              onTap: () => context.push(SettingsScreen.route),
             ),
           ],
         ),

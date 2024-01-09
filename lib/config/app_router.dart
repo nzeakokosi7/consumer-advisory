@@ -1,9 +1,8 @@
-
 import 'package:consumable_advisory/config/app_logger.dart';
 import 'package:consumable_advisory/config/providers.dart';
 import 'package:consumable_advisory/features/advisory/presentation/screens/advisory_screen.dart';
-import 'package:consumable_advisory/features/advisory/presentation/screens/new_advisory_screen.dart';
 import 'package:consumable_advisory/features/advisory/presentation/screens/conversation_history_screen.dart';
+import 'package:consumable_advisory/features/advisory/presentation/screens/new_advisory_screen.dart';
 import 'package:consumable_advisory/features/auth/presentation/screens/login_screen.dart';
 import 'package:consumable_advisory/features/auth/presentation/screens/main_auth_screen.dart';
 import 'package:consumable_advisory/features/auth/presentation/screens/sign_up_screen.dart';
@@ -22,8 +21,10 @@ class AppRouter {
     initialLocation: SplashScreen.route,
     errorPageBuilder: _errorPageBuilder,
     redirect: (BuildContext context, GoRouterState state) {
-      final loggedIn = FirebaseAuth.instance.currentUser !=null;
-      if (!loggedIn && state.uri.toString() != SignUpScreen.route && state.uri.toString() != LoginScreen.route) {
+      final loggedIn = FirebaseAuth.instance.currentUser != null;
+      if (!loggedIn &&
+          state.uri.toString() != SignUpScreen.route &&
+          state.uri.toString() != LoginScreen.route) {
         AppLogger.log(state.uri.toString() + loggedIn.toString());
         return MainAuthScreen.route;
       } else {
@@ -35,7 +36,7 @@ class AppRouter {
   );
 
   static Page<dynamic> _errorPageBuilder(
-      BuildContext context, GoRouterState state) {
+      BuildContext context, GoRouterState state,) {
     AppLogger.log(state.error);
     return MaterialPage<SplashScreen>(
       key: state.pageKey,

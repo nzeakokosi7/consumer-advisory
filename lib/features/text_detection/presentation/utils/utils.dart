@@ -11,7 +11,7 @@ Future<String> getAssetPath(String asset) async {
   if (!await file.exists()) {
     final byteData = await rootBundle.load(asset);
     await file.writeAsBytes(byteData.buffer
-        .asUint8List(byteData.offsetInBytes, byteData.lengthInBytes));
+        .asUint8List(byteData.offsetInBytes, byteData.lengthInBytes),);
   }
   return file.path;
 }

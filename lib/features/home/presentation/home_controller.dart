@@ -1,3 +1,1 @@
-class HomeScreenController {
-
-}
+class HomeScreenController {}

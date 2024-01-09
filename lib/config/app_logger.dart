@@ -8,9 +8,9 @@ class AppLogger {
   static final Logger _logger = Logger();
 
   static void log(
-      dynamic message, {
-        bool longMessage = false,
-      }) {
+    dynamic message, {
+    bool longMessage = false,
+  }) {
     /// logger would only show logs in dev environment
     if (globalEnvironment != Environment.prod) {
       if (longMessage) {

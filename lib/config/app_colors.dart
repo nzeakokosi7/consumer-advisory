@@ -18,12 +18,10 @@ class AppColors {
   static const Color textFieldFloatingLabelColor = Color(0xff8C8C8C);
   static const Color textFieldSpecialFloatingLabelColor = Color(0xffFFFFFF);
 
-
   static const Color textFieldTextColor = Colors.black;
   static const Color textFieldSpecialTextColor = Colors.black;
 
   static const Color buttonLoadingDotsPrimaryColor = Color(0xffffffff);
   static const Color textFieldErrorColor = Color(0xffEF6D6D);
   static const Color textFieldSpecialErrorColor = Color(0xffEF6D6D);
-
 }

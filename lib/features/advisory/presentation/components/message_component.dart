@@ -45,8 +45,9 @@ class MessageComponent extends StatelessWidget {
               ],
             ),
           const SizedBox(height: AppEdgeInsets.normal),
-          if (conversationEntity.status == null || conversationEntity.status?.state.toLowerCase() ==
-              ConversationStatus.processing.name)
+          if (conversationEntity.status == null ||
+              conversationEntity.status?.state.toLowerCase() ==
+                  ConversationStatus.processing.name)
             Center(
               child: _loadingChild,
             ),
