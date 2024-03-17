@@ -78,15 +78,23 @@ class AdvisoryScreen extends ConsumerWidget {
                         child: Padding(
                           padding: AppEdgeInsets.enormous
                               .asEdgeInsetsOnly(bottom: true),
-                          child: ListView.builder(
+                          child: Scrollbar(
                             controller: controller,
-                            itemCount: messages.length,
-                            itemBuilder: (context, index) {
-                              return MessageComponent(
-                                isInitial: index == 0,
-                                conversationEntity: messages[index],
-                              );
-                            },
+                            thumbVisibility: true,
+                            child: Padding(
+                              padding: AppEdgeInsets.enormous
+                                  .asEdgeInsetsOnly(end: true),
+                              child: ListView.builder(
+                                controller: controller,
+                                itemCount: messages.length,
+                                itemBuilder: (context, index) {
+                                  return MessageComponent(
+                                    isInitial: index == 0,
+                                    conversationEntity: messages[index],
+                                  );
+                                },
+                              ),
+                            ),
                           ),
                         ),
                       ),

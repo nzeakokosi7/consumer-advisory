@@ -63,7 +63,8 @@ class ConversationHistoryScreen extends ConsumerWidget {
                             .toList(),
                       )
                     : const Center(
-                        child: Text("You are yet to intiate any consultations"),
+                        child:
+                            Text("You are yet to initiate any consultations"),
                       );
               },
               loading: () => _loadingChild,
