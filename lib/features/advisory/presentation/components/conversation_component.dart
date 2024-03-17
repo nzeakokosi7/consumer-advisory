@@ -31,7 +31,7 @@ class ConversationComponent extends StatelessWidget {
         ),
         ...conversations.map(
           (e) => ListTile(
-            horizontalTitleGap: 0,
+            horizontalTitleGap: 10,
             leading: const Icon(CupertinoIcons.collections),
             title: Text(e.title),
             onTap: () => onTap.call(e.title),

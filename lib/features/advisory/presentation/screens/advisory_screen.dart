@@ -52,10 +52,11 @@ class AdvisoryScreen extends ConsumerWidget {
         ref.watch(userPromptControllerProvider.notifier).promptController;
     ref.watch(advisoryControllerProvider);
 
-    final controller = ref.watch(userPromptControllerProvider.notifier).controller;
+    final controller =
+        ref.watch(userPromptControllerProvider.notifier).controller;
 
     SchedulerBinding.instance.addPostFrameCallback((_) {
-      if(controller.hasClients){
+      if (controller.hasClients) {
         controller.jumpTo(controller.position.maxScrollExtent);
       }
     });
@@ -77,15 +78,23 @@ class AdvisoryScreen extends ConsumerWidget {
                         child: Padding(
                           padding: AppEdgeInsets.enormous
                               .asEdgeInsetsOnly(bottom: true),
-                          child: ListView.builder(
+                          child: Scrollbar(
                             controller: controller,
-                            itemCount: messages.length,
-                            itemBuilder: (context, index) {
-                              return MessageComponent(
-                                isInitial: index == 0,
-                                conversationEntity: messages[index],
-                              );
-                            },
+                            thumbVisibility: true,
+                            child: Padding(
+                              padding: AppEdgeInsets.enormous
+                                  .asEdgeInsetsOnly(end: true),
+                              child: ListView.builder(
+                                controller: controller,
+                                itemCount: messages.length,
+                                itemBuilder: (context, index) {
+                                  return MessageComponent(
+                                    isInitial: index == 0,
+                                    conversationEntity: messages[index],
+                                  );
+                                },
+                              ),
+                            ),
                           ),
                         ),
                       ),
