@@ -97,4 +97,6 @@ class PasswordFieldController extends StateNotifier<PasswordFieldState> {
   }
 }
 
-final passwordFieldController = StateNotifierProvider.autoDispose<PasswordFieldController, PasswordFieldState>((ref) => PasswordFieldController());
+final passwordFieldController = StateNotifierProvider.autoDispose<
+    PasswordFieldController,
+    PasswordFieldState>((ref) => PasswordFieldController());

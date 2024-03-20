@@ -11,9 +11,8 @@ class MessageEntity with _$MessageEntity {
     MessageStatus? status,
     @Default("") String response,
     @Default("") String parentMessageId,
+  }) = _MessageEntity;
 
-}) = _MessageEntity;
-
-  factory MessageEntity.fromJson(Map<String, Object?> json)
-  => _$MessageEntityFromJson(json);
+  factory MessageEntity.fromJson(Map<String, Object?> json) =>
+      _$MessageEntityFromJson(json);
 }

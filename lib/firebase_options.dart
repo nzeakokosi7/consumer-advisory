@@ -63,7 +63,8 @@ class DefaultFirebaseOptions {
     messagingSenderId: '1076123065401',
     projectId: 'consumable-product-advisory',
     storageBucket: 'consumable-product-advisory.appspot.com',
-    iosClientId: '1076123065401-lmqjuh9nbni55l7qbaikd2hp1l4c4kh3.apps.googleusercontent.com',
+    iosClientId:
+        '1076123065401-lmqjuh9nbni55l7qbaikd2hp1l4c4kh3.apps.googleusercontent.com',
     iosBundleId: 'com.ko.consumableAdvisory',
   );
 }

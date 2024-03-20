@@ -2,7 +2,6 @@ import 'dart:convert';
 import 'dart:io';
 
 import 'package:consumable_advisory/config/app_colors.dart';
-import 'package:consumable_advisory/config/common/constants/edge_insets.dart';
 import 'package:consumable_advisory/features/advisory/presentation/screens/new_advisory_screen.dart';
 import 'package:consumable_advisory/features/text_detection/presentation/utils/utils.dart';
 import 'package:flutter/material.dart';
@@ -187,7 +186,7 @@ class _GalleryViewState extends State<GalleryView> {
             key.contains('.jpg') ||
             key.contains('.jpeg') ||
             key.contains('.png') ||
-            key.contains('.webp'))
+            key.contains('.webp'),)
         .toList();
 
     if (context.mounted) {
@@ -196,7 +195,7 @@ class _GalleryViewState extends State<GalleryView> {
           builder: (BuildContext context) {
             return Dialog(
               shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(30.0)),
+                  borderRadius: BorderRadius.circular(30.0),),
               child: Padding(
                 padding: const EdgeInsets.all(16.0),
                 child: Column(
@@ -208,7 +207,7 @@ class _GalleryViewState extends State<GalleryView> {
                     ),
                     ConstrainedBox(
                       constraints: BoxConstraints(
-                          maxHeight: MediaQuery.of(context).size.height * 0.7),
+                          maxHeight: MediaQuery.of(context).size.height * 0.7,),
                       child: SingleChildScrollView(
                         child: Column(
                           children: [
@@ -235,7 +234,7 @@ class _GalleryViewState extends State<GalleryView> {
                 ),
               ),
             );
-          });
+          },);
     }
   }
 

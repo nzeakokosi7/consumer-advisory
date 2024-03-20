@@ -1,4 +1,1 @@
-enum ConversationStatus {
-  processing, errored, completed
-}
-
+enum ConversationStatus { processing, errored, completed }

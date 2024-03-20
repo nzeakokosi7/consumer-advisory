@@ -3,10 +3,11 @@ import 'package:consumable_advisory/features/advisory/domain/entities/message/me
 import 'package:dartz/dartz.dart';
 
 abstract class AdvisoryRepository {
+  Future<Either<String, String>> uploadFile(
+      {required String filePath, required String uploadDirectory,});
 
-  Future<Either<String, String>> uploadFile({required String filePath, required String uploadDirectory});
-
-  Future<Either<String, bool>> sendPrompt({required String collection, required String prompt});
+  Future<Either<String, bool>> sendPrompt(
+      {required String collection, required String prompt,});
 
   Stream<String?> retrieveExtractedText({required String queryParam});
 

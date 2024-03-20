@@ -4,6 +4,7 @@ import 'package:consumable_advisory/config/common/constants/edge_insets.dart';
 import 'package:consumable_advisory/features/advisory/domain/entities/message/message_entity.dart';
 import 'package:consumable_advisory/features/advisory/domain/enums/conversation_status.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_markdown/flutter_markdown.dart';
 
 class MessageComponent extends StatelessWidget {
   final MessageEntity conversationEntity;
@@ -45,8 +46,9 @@ class MessageComponent extends StatelessWidget {
               ],
             ),
           const SizedBox(height: AppEdgeInsets.normal),
-          if (conversationEntity.status == null || conversationEntity.status?.state.toLowerCase() ==
-              ConversationStatus.processing.name)
+          if (conversationEntity.status == null ||
+              conversationEntity.status?.state.toLowerCase() ==
+                  ConversationStatus.processing.name)
             Center(
               child: _loadingChild,
             ),
@@ -60,10 +62,12 @@ class MessageComponent extends StatelessWidget {
                   radius: 20,
                 ),
                 const SizedBox(width: AppEdgeInsets.normal),
-                Expanded(
-                  child: Text(
-                    conversationEntity.response,
-                    softWrap: true,
+                SizedBox(
+                  // height: 100,
+                  width: MediaQuery.of(context).size.width - 100,
+                  child: MarkdownBody(
+                    data: conversationEntity.response,
+                    // softWrap: true,
                   ),
                 )
               ],

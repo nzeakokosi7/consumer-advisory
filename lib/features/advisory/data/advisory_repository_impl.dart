@@ -22,7 +22,8 @@ class AdvisoryRepositoryImpl extends AdvisoryRepository {
 
   @override
   Future<void> deleteConversation({required String conversationId}) {
-    return advisoryDataSource.removeConversation(conversationId: conversationId);
+    return advisoryDataSource.removeConversation(
+        conversationId: conversationId,);
   }
 
   @override
@@ -36,13 +37,17 @@ class AdvisoryRepositoryImpl extends AdvisoryRepository {
   }
 
   @override
-  Future<Either<String, bool>> sendPrompt({required String collection, required String prompt}) {
-    return advisoryDataSource.sendPrompt(collectionPath: collection, prompt: prompt);
+  Future<Either<String, bool>> sendPrompt(
+      {required String collection, required String prompt,}) {
+    return advisoryDataSource.sendPrompt(
+        collectionPath: collection, prompt: prompt,);
   }
 
   @override
-  Future<Either<String, String>> uploadFile({required String filePath, required String uploadDirectory}) {
-    return advisoryDataSource.uploadFile(filePath: filePath, uploadDirectory: uploadDirectory);
+  Future<Either<String, String>> uploadFile(
+      {required String filePath, required String uploadDirectory,}) {
+    return advisoryDataSource.uploadFile(
+        filePath: filePath, uploadDirectory: uploadDirectory,);
   }
 }
 

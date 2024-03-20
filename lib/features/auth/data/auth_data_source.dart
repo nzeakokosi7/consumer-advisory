@@ -42,5 +42,5 @@ class AuthDataSource {
 }
 
 final authDataSourceProvider = Provider<AuthDataSource>(
-      (ref) => AuthDataSource(ref.read(firebaseAuthProvider)),
+  (ref) => AuthDataSource(ref.read(firebaseAuthProvider)),
 );

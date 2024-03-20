@@ -235,10 +235,10 @@ class __PhoneVerificationBottomSheet extends State<_ProductTitleBottomSheet> {
                                   .textTheme
                                   .labelSmall
                                   ?.copyWith(
-                                fontSize: 14,
-                                fontWeight: FontWeight.w500,
-                                color: AppColors.subTitleColor,
-                              ),
+                                    fontSize: 14,
+                                    fontWeight: FontWeight.w500,
+                                    color: AppColors.subTitleColor,
+                                  ),
                             ),
                             value: "Alcohol",
                             groupValue: _category,
@@ -255,10 +255,10 @@ class __PhoneVerificationBottomSheet extends State<_ProductTitleBottomSheet> {
                                   .textTheme
                                   .labelSmall
                                   ?.copyWith(
-                                fontSize: 14,
-                                fontWeight: FontWeight.w500,
-                                color: AppColors.subTitleColor,
-                              ),
+                                    fontSize: 14,
+                                    fontWeight: FontWeight.w500,
+                                    color: AppColors.subTitleColor,
+                                  ),
                             ),
                             value: "Others",
                             groupValue: _category,
@@ -302,14 +302,12 @@ class __PhoneVerificationBottomSheet extends State<_ProductTitleBottomSheet> {
                         },
                         child: Text(
                           "Cancel",
-                          style: Theme.of(context)
-                              .textTheme
-                              .labelSmall
-                              ?.copyWith(
-                            fontSize: 16,
-                            fontWeight: FontWeight.w500,
-                            color: Colors.black,
-                          ),
+                          style:
+                              Theme.of(context).textTheme.labelSmall?.copyWith(
+                                    fontSize: 16,
+                                    fontWeight: FontWeight.w500,
+                                    color: Colors.black,
+                                  ),
                         ),
                       )
                     ],

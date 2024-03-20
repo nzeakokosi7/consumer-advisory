@@ -3,8 +3,8 @@ import 'package:consumable_advisory/config/common/components/loading_dots.dart';
 import 'package:consumable_advisory/config/common/components/navigation_button.dart';
 import 'package:consumable_advisory/config/common/components/text_field.dart';
 import 'package:consumable_advisory/config/common/constants/edge_insets.dart';
-import 'package:consumable_advisory/features/advisory/presentation/controllers/advisory_controller.dart';
 import 'package:consumable_advisory/features/advisory/presentation/components/message_component.dart';
+import 'package:consumable_advisory/features/advisory/presentation/controllers/advisory_controller.dart';
 import 'package:consumable_advisory/features/advisory/presentation/controllers/user_prompt_controller.dart';
 import 'package:consumable_advisory/features/home/presentation/home_screen.dart';
 import 'package:flutter/material.dart';
@@ -33,7 +33,7 @@ class NewAdvisoryScreen extends ConsumerWidget {
             ),
       ),
       leading: NavigationButton(
-        onTap: ()=> context.go(HomeScreen.route),
+        onTap: () => context.go(HomeScreen.route),
       ),
     );
   }
@@ -64,11 +64,11 @@ class NewAdvisoryScreen extends ConsumerWidget {
         orElse: () => null,
         errorSendingUserPrompt: (message) =>
             ScaffoldMessenger.of(context).showSnackBar(
-              SnackBar(
-                content: Text(message),
-                behavior: SnackBarBehavior.floating,
-              ),
-            ),
+          SnackBar(
+            content: Text(message),
+            behavior: SnackBarBehavior.floating,
+          ),
+        ),
       );
     });
 
@@ -81,10 +81,11 @@ class NewAdvisoryScreen extends ConsumerWidget {
         ref.watch(userPromptControllerProvider.notifier).promptController;
     ref.watch(advisoryControllerProvider);
 
-    final controller = ref.watch(userPromptControllerProvider.notifier).controller;
+    final controller =
+        ref.watch(userPromptControllerProvider.notifier).controller;
 
     SchedulerBinding.instance.addPostFrameCallback((_) {
-      if(controller.hasClients){
+      if (controller.hasClients) {
         controller.jumpTo(controller.position.maxScrollExtent);
       }
     });
@@ -98,7 +99,8 @@ class NewAdvisoryScreen extends ConsumerWidget {
             final advisoryController = ref.watch(advisoryControllerProvider);
             return advisoryController.maybeWhen(
               orElse: () => _loadingChild,
-              error: (errorMessage) => Center(child: Text('Error: $errorMessage')),
+              error: (errorMessage) =>
+                  Center(child: Text('Error: $errorMessage')),
               finalized: (productTitle) {
                 final stream = ref.watch(messageStreamProvider(productTitle));
                 return stream.when(
@@ -110,20 +112,28 @@ class NewAdvisoryScreen extends ConsumerWidget {
                           Expanded(
                             child: Padding(
                               padding: AppEdgeInsets.enormous.asEdgeInsetsOnly(bottom: true),
-                              child: ListView.builder(
+                              child: Scrollbar(
                                 controller: controller,
-                                itemCount: messages.length,
-                                itemBuilder: (context, index) {
-                                  return MessageComponent(
-                                    isInitial: index == 0,
-                                    conversationEntity: messages[index],
-                                  );
-                                },
+                                thumbVisibility: true,
+                                child: Padding(
+                                  padding: AppEdgeInsets.enormous.asEdgeInsetsOnly(end: true),
+                                  child: ListView.builder(
+                                    controller: controller,
+                                    itemCount: messages.length,
+                                    itemBuilder: (context, index) {
+                                      return MessageComponent(
+                                        isInitial: index == 0,
+                                        conversationEntity: messages[index],
+                                      );
+                                    },
+                                  ),
+                                ),
                               ),
                             ),
                           ),
                           Container(
-                            padding: AppEdgeInsets.enormous.asEdgeInsetsOnly(bottom: true),
+                            padding: AppEdgeInsets.enormous
+                                .asEdgeInsetsOnly(bottom: true),
                             height: 100,
                             child: Align(
                               alignment: Alignment.bottomCenter,
@@ -135,26 +145,36 @@ class NewAdvisoryScreen extends ConsumerWidget {
                                       controller: userPromptController,
                                     ),
                                   ),
-                                  ref.watch(userPromptControllerProvider).maybeWhen(
-                                    orElse: () => SizedBox(
-                                      width: 30,
-                                      height: 50,
-                                      child: IconButton(
-                                        onPressed: () => ref.read(userPromptControllerProvider.notifier).sendPrompt(conversationTitle: productTitle),
-                                        icon: const Icon(Icons.send_outlined),
-                                      ),
-                                    ),
-                                    sendingUserPrompt: () => Container(
-                                      width: 15,
-                                      height: 15,
-                                      margin: AppEdgeInsets.normal.asEdgeInsetsOnly(start: true),
-                                      child: const CircularProgressIndicator(
-                                        color: Colors.blue,
-                                        strokeWidth: 2,
-                                      ),
-                                    ),
-                                  )
-
+                                  ref
+                                      .watch(userPromptControllerProvider)
+                                      .maybeWhen(
+                                        orElse: () => SizedBox(
+                                          width: 30,
+                                          height: 50,
+                                          child: IconButton(
+                                            onPressed: () => ref
+                                                .read(
+                                                    userPromptControllerProvider
+                                                        .notifier,)
+                                                .sendPrompt(
+                                                    conversationTitle:
+                                                        productTitle,),
+                                            icon:
+                                                const Icon(Icons.send_outlined),
+                                          ),
+                                        ),
+                                        sendingUserPrompt: () => Container(
+                                          width: 15,
+                                          height: 15,
+                                          margin: AppEdgeInsets.normal
+                                              .asEdgeInsetsOnly(start: true),
+                                          child:
+                                              const CircularProgressIndicator(
+                                            color: Colors.blue,
+                                            strokeWidth: 2,
+                                          ),
+                                        ),
+                                      )
                                 ],
                               ),
                             ),

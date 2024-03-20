@@ -18,9 +18,8 @@ class HealthBioEntity with _$HealthBioEntity {
     required bool isPregnant,
     required bool isLactating,
     required bool isAMother,
-
   }) = _HealthBioEntity;
 
-  factory HealthBioEntity.fromJson(Map<String, Object?> json)
-  => _$HealthBioEntityFromJson(json);
+  factory HealthBioEntity.fromJson(Map<String, Object?> json) =>
+      _$HealthBioEntityFromJson(json);
 }

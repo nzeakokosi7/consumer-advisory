@@ -16,11 +16,10 @@ class UserEntity with _$UserEntity {
     required bool isPregnant,
     required bool isLactating,
     required bool isParent,
-
     @Default([]) List<String> stds,
     @Default([]) List<String> allergies,
   }) = _UserEntity;
 
-  factory UserEntity.fromJson(Map<String, Object?> json)
-  => _$UserEntityFromJson(json);
+  factory UserEntity.fromJson(Map<String, Object?> json) =>
+      _$UserEntityFromJson(json);
 }

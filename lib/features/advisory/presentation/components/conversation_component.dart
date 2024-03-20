@@ -31,14 +31,15 @@ class ConversationComponent extends StatelessWidget {
         ),
         ...conversations.map(
           (e) => ListTile(
-            horizontalTitleGap: 0,
+            horizontalTitleGap: 10,
             leading: const Icon(CupertinoIcons.collections),
             title: Text(e.title),
             onTap: () => onTap.call(e.title),
           ),
         ),
         Padding(
-          padding: AppEdgeInsets.enormous.asEdgeInsetsSymmetric(horizontal: true, vertical: true),
+          padding: AppEdgeInsets.enormous
+              .asEdgeInsetsSymmetric(horizontal: true, vertical: true),
           child: const Divider(color: AppColors.titleColor),
         ),
       ],

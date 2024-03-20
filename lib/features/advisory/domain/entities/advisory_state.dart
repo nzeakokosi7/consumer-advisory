@@ -12,11 +12,13 @@ class AdvisoryState with _$AdvisoryState {
 
   const factory AdvisoryState.deleting() = _Deleting;
 
-  const factory AdvisoryState.extractText({required String state}) = _ExtractText;
+  const factory AdvisoryState.extractText({required String state}) =
+      _ExtractText;
 
   const factory AdvisoryState.sendPrompt({required String state}) = _SendPrompt;
 
   const factory AdvisoryState.error({required String errorMessage}) = _Error;
 
-  const factory AdvisoryState.finalized({required String productTitle}) = _Finalized;
+  const factory AdvisoryState.finalized({required String productTitle}) =
+      _Finalized;
 }

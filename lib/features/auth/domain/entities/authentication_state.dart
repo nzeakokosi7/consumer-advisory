@@ -9,7 +9,7 @@ class AuthenticationState with _$AuthenticationState {
   const factory AuthenticationState.loading() = _Loading;
 
   const factory AuthenticationState.unauthenticated({String? message}) =
-  _UnAuthentication;
+      _UnAuthentication;
 
   const factory AuthenticationState.authenticated() = _Authenticated;
 }

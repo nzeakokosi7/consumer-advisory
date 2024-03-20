@@ -7,7 +7,6 @@ import 'package:consumable_advisory/features/advisory/presentation/components/pa
 import 'package:consumable_advisory/features/advisory/presentation/components/password_field/password_field.dart';
 import 'package:consumable_advisory/features/auth/presentation/auth_controller.dart';
 import 'package:consumable_advisory/features/auth/presentation/screens/login_screen.dart';
-import 'package:consumable_advisory/features/home/presentation/home_screen.dart';
 import 'package:consumable_advisory/features/on_boarding/on_boarding_screen.dart';
 import 'package:email_validator/email_validator.dart';
 import 'package:flutter/material.dart';
@@ -56,15 +55,16 @@ class SignUpScreen extends ConsumerWidget {
           //     behavior: SnackBarBehavior.floating,
           //   ),
           // );
-          context.go(OnboardingScreen.route, extra: fullNameController.text.trim());
+          context.go(OnboardingScreen.route,
+              extra: fullNameController.text.trim(),);
         },
         unauthenticated: (message) =>
             ScaffoldMessenger.of(context).showSnackBar(
-              SnackBar(
-                content: Text(message!),
-                behavior: SnackBarBehavior.floating,
-              ),
-            ),
+          SnackBar(
+            content: Text(message!),
+            behavior: SnackBarBehavior.floating,
+          ),
+        ),
       );
     });
 
@@ -83,7 +83,7 @@ class SignUpScreen extends ConsumerWidget {
                     hint: "Full name",
                     hintStyle: TextStyle(color: Colors.grey.shade700),
                     controller: fullNameController,
-                    onChanged: (value)=> ref.refresh(authControllerProvider),
+                    onChanged: (value) => ref.refresh(authControllerProvider),
                     keyboardType: TextInputType.text,
                   ),
                   const SizedBox(height: 15),
@@ -92,7 +92,7 @@ class SignUpScreen extends ConsumerWidget {
                     hint: "Email",
                     hintStyle: TextStyle(color: Colors.grey.shade700),
                     controller: emailController,
-                    onChanged: (value)=> ref.refresh(authControllerProvider),
+                    onChanged: (value) => ref.refresh(authControllerProvider),
                     keyboardType: TextInputType.emailAddress,
                   ),
                   const SizedBox(height: 15),
@@ -117,16 +117,20 @@ class SignUpScreen extends ConsumerWidget {
                     ),
                     loaderColor: AppColors.appBlack,
                     backgroundColor: AppColors.appBackground,
-                    isDisabled: !(ref.watch(passwordFieldController).isPasswordValid && fullNameController.text.trim().isNotEmpty && EmailValidator.validate(ref.watch(emailTextController).text.trim())),
+                    isDisabled:
+                        !(ref.watch(passwordFieldController).isPasswordValid &&
+                            fullNameController.text.trim().isNotEmpty &&
+                            EmailValidator.validate(
+                                ref.watch(emailTextController).text.trim(),)),
                     title: 'Sign Up',
                     titleStyle: const TextStyle(
                       color: AppColors.appBlack,
                       fontSize: 18,
                     ),
                     loading: ref.watch(authControllerProvider).maybeWhen(
-                      orElse: () => false,
-                      loading: () => true,
-                    ),
+                          orElse: () => false,
+                          loading: () => true,
+                        ),
                     onPressed: () =>
                         ref.read(authControllerProvider.notifier).signUp(),
                   ),

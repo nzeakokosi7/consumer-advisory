@@ -6,7 +6,6 @@ import 'package:consumable_advisory/config/providers.dart' as providers;
 import 'package:consumable_advisory/firebase_options.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/cupertino.dart';
-import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 Environment globalEnvironment = Environment.dev;

@@ -5,7 +5,6 @@ import 'package:consumable_advisory/features/auth/presentation/auth_controller.d
 import 'package:consumable_advisory/features/auth/presentation/screens/login_screen.dart';
 import 'package:consumable_advisory/features/auth/presentation/screens/sign_up_screen.dart';
 import 'package:consumable_advisory/features/on_boarding/on_boarding_screen.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
@@ -15,7 +14,6 @@ class MainAuthScreen extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-
     ref.listen(authControllerProvider, (previous, next) {
       next.maybeWhen(
         orElse: () => null,
@@ -30,11 +28,11 @@ class MainAuthScreen extends ConsumerWidget {
         },
         unauthenticated: (message) =>
             ScaffoldMessenger.of(context).showSnackBar(
-              SnackBar(
-                content: Text(message!),
-                behavior: SnackBarBehavior.fixed,
-              ),
-            ),
+          SnackBar(
+            content: Text(message!),
+            behavior: SnackBarBehavior.fixed,
+          ),
+        ),
       );
     });
 
@@ -84,7 +82,9 @@ class MainAuthScreen extends ConsumerWidget {
                             orElse: () => false,
                             loading: () => true,
                           ),
-                      onPressed: ()=> ref.read(authControllerProvider.notifier).continueWithGoogle(),
+                      onPressed: () => ref
+                          .read(authControllerProvider.notifier)
+                          .continueWithGoogle(),
                       backgroundColor: AppColors.appBlack,
                       icon: Image.asset(
                         "assets/google_icon.png",

@@ -34,13 +34,14 @@ class AuthRepositoryImpl implements AuthRepository {
 
   @override
   Future<Either<String, bool>> signInWithGoogle() async {
-    try{
+    try {
       // Trigger the authentication flow
       final GoogleSignInAccount? googleUser = await GoogleSignIn().signIn();
 
-      if(googleUser !=null) {
+      if (googleUser != null) {
         // Obtain the auth details from the request
-        final GoogleSignInAuthentication googleAuth = await googleUser.authentication;
+        final GoogleSignInAuthentication googleAuth =
+            await googleUser.authentication;
 
         // Create a new credential
         final credential = GoogleAuthProvider.credential(
@@ -48,11 +49,10 @@ class AuthRepositoryImpl implements AuthRepository {
           idToken: googleAuth.idToken,
         );
         final response = await firebaseAuth.signInWithCredential(credential);
-        return right(response.user!=null);
+        return right(response.user != null);
       } else {
         return left('Unknown Error');
       }
-
     } on FirebaseAuthException catch (e) {
       return left(e.message ?? 'Unknown Error');
     }

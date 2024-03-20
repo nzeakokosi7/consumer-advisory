@@ -25,8 +25,7 @@ class SplashScreen extends ConsumerWidget {
               padding: const EdgeInsets.only(bottom: 18),
               child: Text(
                 "KO (C) ${DateTime.now().year} All Rights Reserved.",
-                style:
-                const TextStyle(color: AppColors.appGrey, fontSize: 15),
+                style: const TextStyle(color: AppColors.appGrey, fontSize: 15),
               ),
             ),
           )
